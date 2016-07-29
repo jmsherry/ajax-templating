@@ -35,7 +35,7 @@
 </head>
 
 <body>
-    <header class="main-header">
+    <header class="main-header" role="banner">
         <div class="container">
             <h1 class="main-title">Templating, AJAX &amp; APIs</h1></div>
     </header>
@@ -51,11 +51,11 @@
                 <p>We can create new <abbr title="Hypertext Markup Language">HTML</abbr> and put it into the page after load using javascript, like so:</p>
 
                 <div class="controls">
-                    <button class="btn btn-primary" id="inserter">Insert HTML</button>
+                    <button role="button" class="btn btn-primary" id="inserter">Insert HTML</button>
                 </div>
 
                 <div id="templated-content" class="demo">
-                    <div class="receiver"></div>
+                    <div class="receiver" aria-live="polite" aria-relevant="additions"></div>
                 </div>
               </div>
             </div>
@@ -184,9 +184,9 @@ $.ajax({
               <div class="demo-area-inner">
               <h3>Demo</h3>
                 <div class="controls">
-                    <button id="summoner" class="btn btn-primary">Call GitHub...</button>
+                    <button role="button" id="summoner" class="btn btn-primary">Call GitHub...</button>
                 </div>
-                <div id="ajax-content">Insert github profile here</div>
+                <div id="ajax-content" aria-live="polite" aria-relevant="additions">Insert github profile here</div>
               </div>
             </div>
 </div>
