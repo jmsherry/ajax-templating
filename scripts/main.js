@@ -27,7 +27,7 @@ $userDisplay.text(defaultUser);
 var notFound = 'User Not Found';
 
 //console.log(profileTemplate);
-$("#summoner").on('click.summon', function(){
+$("#gh-user-form").on('submit.findGHUser', function(){
   // Now we do it with AJAX (needs to be served)
   var selectedUser = $('#username').val();
 
