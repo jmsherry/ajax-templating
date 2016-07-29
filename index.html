@@ -106,12 +106,12 @@ profileFrag.innerHTML = "&lt;dl&gt;&lt;dt&gt;Name:&lt;/dt&gt;&lt;dd&gt;" + perso
 &lt;/script&gt;</code></pre>
                     </li>
                     <li>
-                        <p>The next step is to use Handlebars to '<mark>compile</mark>' it. Handlebars takes the contents of that script block and turns it into a function that outputs html and inserts the values [that you will give later when you call that function].</p>
+                        <p>The next step is to use Handlebars to '<mark>compile</mark>' it. Handlebars takes the contents of that script block and turns it into a function that outputs html. The function accepts an argument which is an object: The object has all extra the data required to render  that particular piece of HTML. You can use a template repeatedly, say for rendering a list of products, by passing the data for a different product each time. We refer to this data as the '<mark>context</mark>' in which the template is rendered.</p>
                         <pre><code class="language-javascript">var source   = $("#my-template").html(); //Gets template markup from inside the script tag
 var template = Handlebars.compile(source); //Returns a function we'll use to create HTML chunks</code></pre>
                         <p>As you can see from the code above, <code>Handlebars</code> is a global variable. When you load the handlebars script it leaves an object full of helpful things inside the window object(<code>window.Handlebars</code>). This object is available to you when the page is loaded. Try typing <code>Handlebars</code>                            in your console (assuming the script is included) to inspect it.</p>
                     </li>
-                    <li>Next you must get hold of the data that you want to display in that html. e.g. <pre><code class="language-javascript">var data = {title: "New HTML", body: "This is my templated content!"};</code></pre></li>
+                    <li>Next you must get hold of the data (context) that you'll use to render that particular piece of html. e.g. <pre><code class="language-javascript">var data = {title: "New HTML", body: "This is my templated content!"};</code></pre></li>
                     <li><p>You then call the template function we created above,  passing the data. This will return the new HTML:
                         <pre><code class="language-javascript">var html = template(data);</code></pre>
                       </p>
