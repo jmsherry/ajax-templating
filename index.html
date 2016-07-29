@@ -44,6 +44,7 @@
             <p>Sometimes we want to put <abbr title="Hypertext Markup Language">HTML</abbr> into our page <strong>after</strong> the page has rendered. What if, for example, a product sold out? We could either let the user try to do the buying journey and fail, or
                 we could adjust the page to let them know!</p>
             <div class="demo-area">
+              <div class="demo-area-inner">
                 <h3>Demo</h3>
                 <p>We can create new <abbr title="Hypertext Markup Language">HTML</abbr> and put it into the page after load using javascript, like so:</p>
 
@@ -54,6 +55,7 @@
                 <div id="templated-content" class="demo">
                     <div class="receiver"></div>
                 </div>
+              </div>
             </div>
             <h3>How it's done...</h3>
             <p>The process comes in a two parts:</p>
@@ -76,7 +78,7 @@ $('#target').append('&lt;p&gt;Hello World!&lt;/p&gt;');</code></pre>
             <p>As you can see, that's not very maintainable; and in natural javascript that's <strong>many</strong> lines of code! These days we use a system called <strong>'Client-side Templating'</strong> that abstracts all that difficulty away! There are lots of templating libraries out there, but we are going to use <a href="http://handlebarsjs.com/">Handlebars</a>...</p>
 
             <article>
-                <h2>A Quick Guide to using Handlebars</h2>
+                <h2 class="guide-title">A Quick Guide to using Handlebars</h2>
                 <ol class="hb-steps">
                     <li>Include the Handlebars script in the page (<a href="https://cdnjs.com/libraries/handlebars.js">CDN</a> or <a href="http://handlebarsjs.com/installation.html">local</a>)</li>
                     <li>
@@ -171,11 +173,13 @@ $.ajax({
   $('#ajax-content').html(html);
 });</code></pre>
             <div class="demo-area">
+              <div class="demo-area-inner">
               <h3>Demo</h3>
                 <div class="controls">
                     <button id="summoner" class="btn btn-primary">Call GitHub...</button>
                 </div>
                 <div id="ajax-content">Insert github profile here</div>
+              </div>
             </div>
 </div>
 </section>

@@ -13,7 +13,7 @@
 }
 
 .main-header {
-  padding-top: 40px;
+  padding-top: 5px;
 }
 
 .main-title {
@@ -37,9 +37,14 @@ h2 {
 }
 
 .demo-area {
-  border: 3px dashed #f00;
   padding: 20px;
   margin-bottom: 1em;
+      background: repeating-linear-gradient( 45deg, #FFFF00, #FFFF00 35px, #000 30px, #000 73px );
+}
+
+.demo-area-inner {
+  background-color: #fff;
+  padding: 10px;
 }
 
 .demo {
@@ -80,8 +85,9 @@ article {
 }
 
 section {
-  padding: 20px 0;
+  padding: 50px 0 20px;
   border-bottom: 1px solid;
+  box-shadow: 0 15px 29px -11px #333 inset;
 }
 
 .hb-steps li {
@@ -108,4 +114,8 @@ pre[class*=language-] {
 h4 abbr[title] {
   text-decoration: none;
   border: none;
+}
+
+.guide-title {
+  font-family: cursive, serif;
 }
