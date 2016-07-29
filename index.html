@@ -75,13 +75,13 @@ $('#target').html('&lt;p&gt;Hello World!&lt;/p&gt;');
 $('#target').append('&lt;p&gt;Hello World!&lt;/p&gt;');</code></pre>
             <h4>Manufacture</h4>
             <p>The manufacture (part 1), however, is a little more tricky! To create new HTML we could just use javascript normally:</p>
-            <i class="fa fa-times wrong" aria-hidden="true"></i><pre><code class="language-javascript">//in jQuery
+          <div class="wrong-wrapper"><i class="fa fa-times wrong" aria-hidden="true"></i><pre><code class="language-javascript">//in jQuery
 $('#target').html('&lt;div class="profile"&gt;&lt;dl&gt;&lt;dt&gt;Name:&lt;/dt&gt;&lt;dd&gt;' + person.name + '&lt;/dd&gt;&lt;dt&gt;Age:&lt;/dt&gt;&lt;dd&gt;' + person.age + '&lt;/dd&gt;&lt;dt&gt;Height:&lt;/dt&gt;&lt;dd&gt;' + person.height + '&lt;/dd&gt;&lt;/dl&gt;&lt;/div&gt;');
 
 //or in native js
-var profileFrag = document.createElement('div');
+var profileFrag = document.createElement('DIV');
 profileFrag.className = "profile";
-profileFrag.innerHTML = "&lt;dl&gt;&lt;dt&gt;Name:&lt;/dt&gt;&lt;dd&gt;" + person.name + "&lt;/dd&gt;&lt;dt&gt;Age:&lt;/dt&gt;&lt;dd&gt;" + person.age + "&lt;/dd&gt;&lt;dt&gt;Height:&lt;/dt&gt;&lt;dd&gt;" + person.height + "&lt;/dd&gt;&lt;/dl&gt;"</code></pre>
+profileFrag.innerHTML = "&lt;dl&gt;&lt;dt&gt;Name:&lt;/dt&gt;&lt;dd&gt;" + person.name + "&lt;/dd&gt;&lt;dt&gt;Age:&lt;/dt&gt;&lt;dd&gt;" + person.age + "&lt;/dd&gt;&lt;dt&gt;Height:&lt;/dt&gt;&lt;dd&gt;" + person.height + "&lt;/dd&gt;&lt;/dl&gt;"</code></pre></div>
             <p>As you can see, that's not very maintainable. These days we use a system called <strong>'Client-side Templating'</strong> that abstracts all that difficulty away! There are lots of templating libraries out there, but we are going to use <a href="http://handlebarsjs.com/">Handlebars</a>...</p>
 
             <article>

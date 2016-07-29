@@ -1,14 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  max-width: 90%;
-  margin: 0 auto;
-}
-
 .receiver {
-  /*border: 1px solid red;*/
   padding: 25px;
 }
 
@@ -119,4 +109,23 @@ h4 abbr[title] {
 
 .guide-title {
   font-family: cursive, serif;
+}
+
+.wrong-wrapper {
+  font-size: 0;
+}
+
+.wrong {
+  width: 6%;
+  font-size: 4rem;
+  display: inline-block;
+  vertical-align: top;
+  color: #f00;
+}
+
+.wrong-wrapper pre {
+  width: 80%;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1rem;
 }
