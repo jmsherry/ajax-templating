@@ -68,7 +68,7 @@ $('#target').append('&lt;p&gt;Hello World!&lt;/p&gt;');</code></pre>
   &lt;div class="entry"&gt;
     &lt;h3&gt;{{title}}&lt;/h3&gt;
     &lt;div class="body"&gt;
-      {{body}}
+      &lt;p&gt;{{body}}&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/script&gt;</code></pre>
@@ -80,8 +80,16 @@ var template = Handlebars.compile(source); //Returns a function we'll use to cre
                         <p>As you can see from the code above, <code>Handlebars</code> is a global variable. When you load the handlebars script it leaves an object full of helpful things inside the window object(<code>window.Handlebars</code>). This object is available to you when the page is loaded. Try typing <code>Handlebars</code>                            in your console (assuming the script is included) to inspect it.</p>
                     </li>
                     <li>Next you must get hold of the data that you want to display in that html. e.g. <pre><code class="language-javascript">var data = {title: "New HTML", body: "This is my templated content!"};</code></pre></li>
-                    <li>You then call the template function we created above,  passing the data. This will return the new HTML:
+                    <li><p>You then call the template function we created above,  passing the data. This will return the new HTML:
                         <pre><code class="language-javascript">var html = template(data);</code></pre>
+                      </p>
+                      <p>This produces the HTML:</p>
+                      <pre><code class="language-html">&lt;div class="entry"&gt;
+  &lt;h3&gt;New HTML&lt;/h3&gt;
+  &lt;div class="body"&gt;
+    &lt;p&gt;This is my templated content!&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                     </li>
                     <li>Now insert it into the page: <pre><code class="language-javascript">$('#targetArea').html(html);</code></pre>
                     </li>
