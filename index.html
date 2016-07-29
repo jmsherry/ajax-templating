@@ -183,9 +183,16 @@ $.ajax({
             <div class="demo-area">
               <div class="demo-area-inner">
               <h3>Demo</h3>
-                <div class="controls">
-                    <button role="button" id="summoner" class="btn btn-primary">Call GitHub...</button>
-                </div>
+                <form class="controls">
+
+                    <div class="formRow">
+                      <label for="username">Change Username</label>
+                      <input type="text" id="username"><p>Current user is <span id="currentUser" class="text-info"></span></p>
+                    </div>
+                    <div class="formRow">
+                      <button type="submit" role="button" id="summoner" class="btn btn-primary">Call GitHub...</button>
+                    </div>
+                </form>
                 <div id="ajax-content" aria-live="polite" aria-relevant="additions">Insert github profile here</div>
               </div>
             </div>

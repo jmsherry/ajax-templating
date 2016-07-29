@@ -19,11 +19,24 @@ $("#inserter").on('click.insert', function(){
 var profileSource   = $("#profile-template").html();
 var profileTemplate = Handlebars.compile(profileSource); //returns a function
 
+var defaultUser = 'jmsherry';
+var currentUser = defaultUser;
+var $userDisplay = $('#currentUser');
+$userDisplay.text(defaultUser);
+
+var notFound = 'User Not Found';
+
 //console.log(profileTemplate);
 $("#summoner").on('click.summon', function(){
   // Now we do it with AJAX (needs to be served)
+  var selectedUser = $('#username').val();
+
+  if(selectedUser){
+    currentUser = selectedUser;
+    $userDisplay.text(currentUser);
+  }
   $.ajax({
-    url: '//api.github.com/users/jmsherry' //you can change your username for mine
+    url: '//api.github.com/users/' + currentUser //you can change your username for mine
     }).done(function(result){
       console.log(result);
       var newHtml = profileTemplate(result);
@@ -31,8 +44,14 @@ $("#summoner").on('click.summon', function(){
       $('#ajax-content').html(newHtml);
     })
     .fail(function(err){
-      console.error(err);
+      if(err.status===404){
+        $('#ajax-content').html(notFound);
+        console.info(notFound);
+      } else {
+        console.error(err);
+      }
     });
+    return false;
   });
   //BECAUSE ajax is asynchronous, anything you put down here will happen before the request is completed, and hence it's no use
 });
