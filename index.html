@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=7">
 
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ site.baseurl }}/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ site.baseurl }}/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ site.baseurl }}/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ site.baseurl }}/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ site.baseurl }}/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ site.baseurl }}/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ site.baseurl }}/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ site.baseurl }}/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{ site.baseurl }}/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ site.baseurl }}/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -124,7 +124,7 @@ var template = Handlebars.compile(source); //Returns a function we'll use to cre
     <section id="AJAX">
         <div class="container">
             <h2>AJAX</h2>
-            <p><strong>To use ajax you need your page to be on a server</strong>: This can be a local server (i.e. running on your machine) or remote server. To create a quick and easy local server, I recommend <code>httpster</code>. Install it globally from your terminal using npm: <code>npm i -g httpster</code>. (If you don't know what <code>npm</code> is, it's the package manager for node.js. To get it you'll have to install node on your machine from <a href="https://nodejs.org/en/download/">here</a>)</p>
+            <p><strong>To use ajax you need your page to be on a server</strong>: This can be a local server (i.e. running on your machine) or remote server. To create a quick and easy local server, I recommend <code>httpster</code>. Install it globally using npm: <code>npm i -g httpster</code></p>
             <p>To start the server navigate on the command line into the folder that this page is in and the simply type <code>httpster</code> and hit return. You will instructed to browse to something like <code>http://localhost:3333</code>. Do so.</p>
             <h3>What AJAX does</h3>
             <p>AJAX allows us to call out to servers (including our own) for resources after the page has been rendered. We can call for actual html files (known as 'partials') and insert them into our current page; javascript data files (<abbr title="JavaScript Object Notation">JSON</abbr> Files), or; we can call a server and ask for a response (which is typically <abbr title="JavaScript Object Notation">JSON</abbr>)</p>
