@@ -190,10 +190,10 @@ $.ajax({
   <div class="container">
             <h2>APIs</h2>
             <p>When you called GitHub you called a thing called an <abbr title="Application Program Interface">API</abbr> (<mark>Application Program Interface</mark>). APIs are set up by people/organisations to allow others to interact with their business through servers</p>
-            <h4>REST APIs</h4>
-            <h5>What is REST</h5>
+            <h3>REST APIs</h3>
+            <h4>What is REST</h4>
             <p><abbr title="REspresentational State Transfer">REST</abbr> stands for <mark>REspresentational State Transfer</mark>. REST is a way of keeping the state of an application in sync on the client and the server. For example, if a user removes an item from their shopping basket on the client we send an HTTP <code>DELETE</code> request to remove it from the basket on the server too.</p>
-            <h5>HTTP verbs/methods used in REST</h5>
+            <h4>HTTP verbs/methods used in REST</h4>
             <div class="alert alert-info">
             <p>Disambiguation: HTTP VERB is a thing you use to <strong>do something</strong> using the http protocol itself. It is a method of doing something.</p>
             <p> In coding: <dl>
@@ -247,7 +247,7 @@ $.ajax({
             </tr>
         </tbody>
     </table>
-            <h5>Typical URL Format</h5>
+            <h4>Typical URL Format</h4>
             <p>The URL Structure is important in REST. Using the standard structure well documents the API for users (meaning that they can guess where to call to acheive their aims).</p>
             <p>An API has places you can call to, called <mark>routes</mark>. An example route might be: <code>http://tesco.com/groceries/fruit/apples</code>. This makes it easy to guess where you'd call to get oranges, right?!</p>
             <table class="table table-bordered">
@@ -310,9 +310,9 @@ $.ajax({
                     </tbody>
                 </table>
 
-            <h5>Testing APIs with Postman</h5>
+            <h4>Testing APIs with Postman</h4>
             <p>Sometimes, rather than doing it in your console, you'll want to test ajax calls using a client program, so that the information is easier to see and you can configure the call better. I tend to use   <a href="https://www.getpostman.com/">Postman</a>. We'll just have a brief look at that.</p>
-            <h5>jsonplaceholder</h5>
+            <h4>jsonplaceholder</h4>
             <p>One public 'dummy' API you can use to test is <a href="https://jsonplaceholder.typicode.com/">https://jsonplaceholder.typicode.com/</a>. If you use Postman (or any ajax; or just your browser [in the case of <code>GET</code>s]) to make a request to it, then it will respond with data. Try making a get request to <a href="https://jsonplaceholder.typicode.com/photos">https://jsonplaceholder.typicode.com/photos</a>, or making a <code>PUT</code> request to <code>https://jsonplaceholder.typicode.com/users/1</code></p>
         </div>
     </section>
