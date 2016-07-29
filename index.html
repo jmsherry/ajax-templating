@@ -75,7 +75,7 @@ $('#target').html('&lt;p&gt;Hello World!&lt;/p&gt;');
 $('#target').append('&lt;p&gt;Hello World!&lt;/p&gt;');</code></pre>
             <h4>Manufacture</h4>
             <p>The manufacture (part 1), however, is a little more tricky! To create new HTML we could just use javascript normally:</p>
-          <div class="wrong-wrapper"><i class="fa fa-times wrong" aria-hidden="true"></i><pre><code class="language-javascript">//in jQuery
+          <div class="wrong-wrapper"><span class="turd">&#128169;</span><i class="fa fa-times wrong" aria-hidden="true"></i><pre><code class="language-javascript">//in jQuery
 $('#target').html('&lt;div class="profile"&gt;&lt;dl&gt;&lt;dt&gt;Name:&lt;/dt&gt;&lt;dd&gt;' + person.name + '&lt;/dd&gt;&lt;dt&gt;Age:&lt;/dt&gt;&lt;dd&gt;' + person.age + '&lt;/dd&gt;&lt;dt&gt;Height:&lt;/dt&gt;&lt;dd&gt;' + person.height + '&lt;/dd&gt;&lt;/dl&gt;&lt;/div&gt;');
 
 //or in native js
@@ -219,9 +219,9 @@ $.ajax({
       <caption hidden>REST CRUD Relationship</caption>
         <thead>
             <tr>
-                <th>Operation</th>
-                <th>HTTP VERB (Method)</th>
-                <th>Purpose</th>
+                <th scope="col">Operation</th>
+                <th scope="col">HTTP VERB (Method)</th>
+                <th scope="col">Purpose</th>
             </tr>
         </thead>
         <tfoot hidden>
@@ -233,22 +233,22 @@ $.ajax({
         </tfoot>
         <tbody>
             <tr>
-                <td><strong>Create</strong></td>
+                <th scope="row"><strong>Create</strong></th>
                 <td><code>POST</code></td>
                 <td>To send new data to the server.</td>
             </tr>
             <tr>
-                <td><strong>Read</strong></td>
+                <th scope="row"><strong>Read</strong></th>
                 <td><code>GET</code></td>
                 <td>To retrieve an item/list of items from the server</td>
             </tr>
             <tr>
-                <td><strong>Update</strong></td>
+                <th scope="row"><strong>Update</strong></th>
                 <td><code>PUT</code></td>
                 <td>To update the stored details of a record. e.g. Maybe the price of an item changed??</td>
             </tr>
             <tr>
-                <td><strong>Delete</strong></td>
+                <th scope="row"><strong>Delete</strong></th>
                 <td><code>DELETE</code></td>
                 <td>To indicate removal or deletion of a thing. (Server handles how)</td>
             </tr>
@@ -261,9 +261,9 @@ $.ajax({
                   <caption hidden>REST Routes</caption>
                     <thead>
                         <tr>
-                            <th>HTTP Verb/Method</th>
-                            <th>Route</th>
-                            <th>Purpose</th>
+                            <th scope="col">HTTP Verb/Method</th>
+                            <th scope="col">Route</th>
+                            <th scope="col">Purpose</th>
                         </tr>
                     </thead>
                     <tfoot hidden>
