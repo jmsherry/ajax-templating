@@ -97,7 +97,7 @@ var template = Handlebars.compile(source); //Returns a function we'll use to cre
             </article>
         </div>
     </section>
-    <section id="ajax">
+    <section id="AJAX">
         <div class="container">
             <h2>AJAX</h2>
             <p><strong>To use ajax you need your page to be on a server</strong>: This can be a local server (i.e. running on your machine) or remote server. To create a quick and easy local server, I recommend <code>httpster</code>. Install it globally using npm: <code>npm i -g httpster</code></p>
@@ -149,13 +149,20 @@ $.ajax({
   $('#ajax-content').html(html);
 });</code></pre>
             <div class="demo-area">
-              <h2>Demo</h2>
+              <h3>Demo</h3>
                 <div class="controls">
                     <button id="summoner" class="btn btn-primary">Call GitHub...</button>
                 </div>
                 <div id="ajax-content">Insert github profile here</div>
             </div>
-            <h3>APIs</h3>
+</div>
+</section>
+
+
+<!-- API SECTION -->
+<section id="APIS">
+  <div class="container">
+            <h2>APIs</h2>
             <p>When you called GitHub you called a thing called an <abbr title="Application Program Interface">API</abbr> (<mark>Application Program Interface</mark>). APIs are set up by people/organisations to allow others to interact with their business through servers</p>
             <h4>REST APIs</h4>
             <h5>What is REST</h5>
