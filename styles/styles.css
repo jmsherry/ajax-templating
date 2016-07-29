@@ -12,9 +12,22 @@
   padding: 25px;
 }
 
+.main-header {
+  padding-top: 40px;
+}
+
 .main-title {
   text-align: center;
-  margin: 1em;
+}
+
+h2 {
+    color: #3F7FBF;
+    font-weight: 300;
+    border-bottom: 2px solid;
+    padding-bottom: 0.25em;
+    padding-right: 0.5em;
+    display: inline-block;
+    margin-bottom: 1em;
 }
 
 *[class^=" language-"] .tag {
@@ -67,7 +80,8 @@ article {
 }
 
 section {
-  padding-bottom: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid;
 }
 
 .hb-steps li {
