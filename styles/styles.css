@@ -85,7 +85,7 @@ section {
   margin-bottom: 1rem;
 }
 
-strong code.lowercase, strong span.lowercase {
+strong code.preserve-case {
   text-transform: none;
 }
 
