@@ -85,8 +85,8 @@ section {
   margin-bottom: 1rem;
 }
 
-strong code.lowercase {
-  text-transform: lowercase
+strong code.lowercase, strong span.lowercase {
+  text-transform: none;
 }
 
 .hb-steps ol {
@@ -131,4 +131,12 @@ h4 abbr[title] {
 }
 .turd {
   font-family: arial;
+}
+
+.alert-info .table-bordered th, .alert-info .table-bordered td{
+  border-color: #000;
+}
+
+.qs {
+  white-space: nowrap;
 }

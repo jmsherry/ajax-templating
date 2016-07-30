@@ -73,14 +73,14 @@ $('#target').html('&lt;p&gt;Hello World!&lt;/p&gt;');
 $('#target').append('&lt;p&gt;Hello World!&lt;/p&gt;');</code></pre>
             <h4>Manufacture</h4>
             <p>The manufacture (part 1), however, is a little more tricky! To create new HTML we could just use javascript normally:</p>
-          <div class="wrong-wrapper"><span class="turd">&#128169;</span><i class="fa fa-times wrong" aria-hidden="true"></i><pre><code class="language-javascript">//in jQuery
-$('#target').html('&lt;div class="profile"&gt;&lt;dl&gt;&lt;dt&gt;Name:&lt;/dt&gt;&lt;dd&gt;' + person.name + '&lt;/dd&gt;&lt;dt&gt;Age:&lt;/dt&gt;&lt;dd&gt;' + person.age + '&lt;/dd&gt;&lt;dt&gt;Height:&lt;/dt&gt;&lt;dd&gt;' + person.height + '&lt;/dd&gt;&lt;/dl&gt;&lt;/div&gt;');
-
-//or in native js
+          <div class="wrong-wrapper"><span class="turd">&#128169;</span><i class="fa fa-times wrong" aria-hidden="true"></i><pre><code class="language-javascript">//in native js
 var profileFrag = document.createElement('DIV');
 profileFrag.className = "profile";
 profileFrag.innerHTML = "&lt;dl&gt;&lt;dt&gt;Name:&lt;/dt&gt;&lt;dd&gt;" + person.name + "&lt;/dd&gt;&lt;dt&gt;Age:&lt;/dt&gt;&lt;dd&gt;" + person.age + "&lt;/dd&gt;&lt;dt&gt;Height:&lt;/dt&gt;&lt;dd&gt;" + person.height + "&lt;/dd&gt;&lt;/dl&gt;"
-document.getElementById("target").innerHTML = profileFrag;</code></pre></div>
+document.getElementById("target").innerHTML = profileFrag;
+
+//in jQuery
+$('#target').html('&lt;div class="profile"&gt;&lt;dl&gt;&lt;dt&gt;Name:&lt;/dt&gt;&lt;dd&gt;' + person.name + '&lt;/dd&gt;&lt;dt&gt;Age:&lt;/dt&gt;&lt;dd&gt;' + person.age + '&lt;/dd&gt;&lt;dt&gt;Height:&lt;/dt&gt;&lt;dd&gt;' + person.height + '&lt;/dd&gt;&lt;/dl&gt;&lt;/div&gt;');</code></pre></div>
             <p>As you can see, that's not very readable or maintainable. These days we use a system called <strong>'Client-side Templating'</strong> that abstracts all that difficulty away! There are lots of templating libraries out there, but we are going to use <a href="http://handlebarsjs.com/">Handlebars</a>...</p>
 
             <article>
@@ -90,10 +90,10 @@ document.getElementById("target").innerHTML = profileFrag;</code></pre></div>
                     <li>
                         <p>Insert templates into the page using script tags, like:</p>
                         <pre class="language-html"><code>&lt;script id="my-template" type="text/x-handlebars-template"&gt;&lt;/script&gt;</code></pre>
-                        <ol><li><strong>The <code class="lowercase">type</code> attribute must be set to <code class="lowercase">text/x-handlebars</code>!!</strong></li><li>Also, your template script block <strong>must have an id</strong> set on it in order to find and use the template...</li></ol>
+                        <ol><li><strong>The <code class="lowercase">type</code> attribute must be set to <code class="lowercase">text/x-handlebars</code>!!</strong></li><li>Also, your template script block <strong>should have an id</strong> set on it in order to find and use the template...</li></ol>
                     </li>
                     <li>
-                        <p>Inside those tags you add Handlebars templates that look like:</p>
+                        <p>Inside those tags you add Handlebars template code that looks like:</p>
                         <pre><code class="language-handlebars">&lt;script id="my-template" type="text/x-handlebars-template"&gt;
   &lt;div class="entry"&gt;
     &lt;h3&gt;{{title}}&lt;/h3&gt;
@@ -102,13 +102,15 @@ document.getElementById("target").innerHTML = profileFrag;</code></pre></div>
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/script&gt;</code></pre>
-<p>The <mark>{{&lt;something&gt;}}</mark>s are where we will insert data which is relevant to that template.</p>
+<p>The <mark>{{&lt;something&gt;}}</mark>s are where we will insert data which is relevant to the piece of HTML we are creating.</p>
                     </li>
                     <li>
-                        <p>The next step is to use Handlebars to '<mark>compile</mark>' it. Handlebars takes the contents of that script block and turns it into a function that outputs html. The function accepts an argument which is an object: The object has all extra the data required to render  that particular piece of HTML. You can use a template repeatedly, say for rendering a list of products, by passing the data for a different product each time. We refer to this data as the '<mark>context</mark>' in which the template is rendered.</p>
+                        <p>The next step is to get hold of the template markup and use it. To do this we need to copy it, and then  Handlebars needs to '<mark>compile</mark>' it.</p>
+                        <p>Compilation is when Handlebars takes the contents of that script block and turns it into a function that outputs html. The function accepts an argument (which is an object) that contains any extra data required to manufacture that particular piece of HTML.</p>
+                        <p>Once stored, you can use a template repeatedly, say for rendering a list of products, by calling that function and passing the data for a different product each time. We refer to this data as the '<mark>context</mark>' in which the template is rendered.</p>
                         <pre><code class="language-javascript">var source   = $("#my-template").html(); //Gets template markup from inside the script tag
 var template = Handlebars.compile(source); //Returns a function we'll use to create HTML chunks</code></pre>
-                        <p>As you can see from the code above, <code>Handlebars</code> is a global variable. When you load the handlebars script it leaves an object full of helpful templating functions inside the window object. (The object is available as noted above, or at <code>window.Handlebars</code>, assuming the script is correctly hooked up). This object is available to you when the page is loaded. Try typing <kbd>Handlebars</kbd>                            in your console and hit <kbd>return</kbd> to inspect it.</p>
+                        <aside class="alert alert-info"><p>As you can see from the code above, <code>Handlebars</code> is a global variable. When you load the handlebars script it leaves an object full of helpful templating functions inside the window object. (The object is available as noted above, or at <code>window.Handlebars</code>, assuming the script is correctly hooked up). This object is available to you when the page is loaded. Try typing <kbd>Handlebars</kbd>                            in your console and hit <kbd>return</kbd> to inspect it.</p></aside>
                     </li>
                     <li>Next you must get hold of the data that you'll use to render that particular piece of html. (The <mark>context</mark>) e.g.:<pre><code class="language-javascript">var data = {title: "New HTML", body: "This is my templated content!"};</code></pre></li>
                     <li><p>You then call the template function we created above,  passing the data. This will return the new HTML:
@@ -131,20 +133,22 @@ var template = Handlebars.compile(source); //Returns a function we'll use to cre
     <section id="AJAX">
         <div class="container">
             <h2>AJAX</h2>
-            <p><strong>To use ajax reliably you need your page to be on a server</strong>: This can be a local server (i.e. one that is running on your machine) or remote server. To create a quick and easy local server, I recommend <mark>httpster</mark>. Install it globally using npm: <kbd>npm i -g httpster</kbd></p>
-            <p><defn><mark>npm</mark> is node.js' package manager. If you type <kbd>npm -v</kbd> into your terminal and hit <kbd>return</kbd> and get a message saying that npm is not recognised, then you'll need to install node.js from <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></defn></p>
-            <p>To start the server, navigate on the command line into the folder that this page is in and the simply type <kbd>httpster</kbd> and hit <kbd>return</kbd>. You will instructed to browse to something like <kbd>http://localhost:3333</kbd>. Do so.</p>
+            <div class="alert alert-info">
+                  <p>For this next section we'll require <mark>npm</mark> and the use of your <mark>command line</mark>.</p>
+                  <p>To find your command line on mac:</p>
+                    <ol><li>Press <kbd><abbr title="command">CMD</abbr></kbd> + <kbd>space</kbd> to bring up your <mark>spotlight</mark> program.</li>
+                      <li>Type <kbd>terminal</kbd> into spotlight and at some point it will auto-suggest the terminal application.</li>
+                      <li>Hit <kbd>return</kbd> or click on it to activate.</li></ol>
+                  <p>To find your command line on windows 10 (which sadly isn't as good):</p> <ol><li>press the <kbd>start</kbd> button</li>
+                    <li>then type <kbd>command prompt</kbd>. At some point it will auto-suggest the terminal application.</li><li> Hit <kbd>return</kbd> or click on it to activate.</li></ol>
+                  <p><defn><mark>npm</mark> is node.js' package manager.</defn> If you type <kbd>npm -v</kbd> into your command line and hit <kbd>return</kbd> and get a message saying that npm is not recognised, then you'll need to install node.js from <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
+            </div>
+
+            <p><strong>To use ajax reliably you need your page to be on a server</strong>: This can be a local server (i.e. one that is running on your machine) or a remote server. To create a quick and easy local server, I recommend <mark>httpster</mark>. Install it globally using npm: Type <kbd>npm i -g httpster</kbd> into your command line and hit <kbd>return</kbd>.</p>
+            <p>To start the server, navigate on the command line into the folder that this page is in and the simply type <kbd>httpster</kbd> and hit <kbd>return</kbd>. You will instructed to browse to something like <code>http://localhost:3333</code>: Do so.</p>
             <h3>What AJAX does</h3>
-            <p>AJAX allows us to call out to servers (including our own) for resources after the page has been rendered. We can call for actual html files (generally these are not whole pages and are known as 'partials') and insert them into our current page; specific data files (<abbr title="JavaScript Object Notation">JSON</abbr> or, less commonly,  <abbr title="Extensible Markup Language">XML</abbr>), or; we can call the server, using a non-specific <abbr title="Uniform Resource Indicator">URI</abbr> and ask for a response (which is typically <abbr title="JavaScript Object Notation">JSON</abbr>)</p>
-            <aside class="alert alert-info">
-              <p>Side Note: The difference between a <abbr title="Uniform Resource Location">URL</abbr> (Uniform Resource Location) and a <abbr title="Uniform Resource Indicator">URI</abbr> (Uniform Resource Indicator) is that the URL points to a place on the servers file structure where a static (already fully created) document exists. A URI, by contrast, means that you're calling out to some web address that doesn't refernce a specific document</p>
-                  <dl>
-                    <dt>URL</dt>
-                    <dd>https://www.zoo.com/pandas/panda.json</dd>
-                    <dt>URI</dt>
-                    <dd>https://www.ferrari.com/dream</dd>
-                  </dl>
-            </aside>
+            <p><defn><abbr title="Asynchronous Javascript and XML">AJAX</abbr> stands for Asynchronous Javascript and XML.</defn> The internet was first designed to move between static documents. You moved from page to page and any changes would be shown in the next page. In the late 1999 Microsoft added an ability for Internet Explorer to call out to a server for more information <em>without</em> refreshing the page. This is known as <mark>asynchronous</mark>.</p>
+            <p>AJAX allows us to call out to servers (including our own) for resources after the page has been loaded. We can call for actual html files (generally these are not whole pages and are known as 'partials') and insert them into our current page; specific data files (<abbr title="JavaScript Object Notation">JSON</abbr> or, less commonly,  <abbr title="Extensible Markup Language">XML</abbr>), or; we can call the server, using a non-specific <abbr title="Uniform Resource Indicator">URI</abbr> and ask for a response (which is typically <abbr title="JavaScript Object Notation">JSON</abbr>)</p>
             <h4>Introducing <abbr title="JavaScript Object Notation">JSON</abbr></h4>
             <p><abbr title="JavaScript Object Notation">JSON</abbr> is a <mark>'transport language'</mark>. It stands for <mark>'JavaScript Object Notation'</mark>. It allows the transport of JavaScript objects between locations.</p>
             <p><abbr title="JavaScript Object Notation">JSON</abbr> can be formed of <mark>objects or arrays</mark>, and is formatted like a normal javascript, except that: <ol><li><strong>strings must use double quotes</strong></li><li><strong>keys must be in double quotes too</strong></li></ol> So:
@@ -162,27 +166,28 @@ var template = Handlebars.compile(source); //Returns a function we'll use to cre
           </p>
           <p>There is a global variable, <code>JSON</code>, available in your browser (<code>window.JSON</code>). The object is a helper object for dealing with <abbr title="JavaScript Object Notation">JSON</abbr>. If you type <kbd>JSON</kbd> into your console and hit <kbd>return</kbd> you'll be able to inspect it.</p>
           <p>Objects or Arrays can be turned into <abbr title="JavaScript Object Notation">JSON</abbr> using <code>JSON.stringify()</code> and back again using <code>JSON.parse()</code>. On AJAX calls the response is usually converted for you on receipt of a response.</p>
-          <p><abbr title="For your information">FYI</abbr>, a <mark>collection</mark> is an array of objects. Data is often represented this way, with an object for each product or person and an array linking them together semantically.</p>
+          <aside class="alert alert-info"><p><strong>Side Note</strong>: A '<mark>collection</mark>' is an array of objects. Data is often represented this way, with an object for each product or person and an array linking them together semantically.</p>
+          <p>A good tool for dealing with objects, arrays, collections and many other things is <mark><a href="https://lodash.com/">Lodash</a></mark> (which is <mark>superset</mark> and enhancement of a library called <mark><a href="http://underscorejs.org/">underscore</a></mark>).</p></aside>
           <h3>Making our first AJAX call</h3>
           <p>With natural javascript: <pre><code class="language-javascript">var xmlhttp = new XMLHttpRequest();
 
 xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-       if (xmlhttp.status == 200) {
+    if (xmlhttp.readyState === XMLHttpRequest.DONE ) {
+       if (xmlhttp.status === 200) {
            document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
        }
-       else if (xmlhttp.status == 400) {
-          alert('There was an error 400');
+       else if (xmlhttp.status === 404) {
+          alert('The resource was not found');
        }
        else {
-           alert('something else other than 200 was returned');
+           alert('Error: Call to server failed with code: ' + xmlhttp.status);
        }
     }
 };
 
 xmlhttp.open("GET", "ajax_info.txt", true);
 xmlhttp.send();</code></pre></p>
-    <p>We'll use jQuery because it's shorter/quicker.</p>
+    <p>We'll use jQuery because it's shorter/easier.</p>
             <p>Try the following in your console:</p>
             <pre><code class="language-javascript">$.ajax({
     method: 'GET', //optional. GET is the default if not provided
@@ -233,14 +238,78 @@ $.ajax({
 <section id="APIS">
   <div class="container">
             <h2>APIs</h2>
+            <aside class="alert alert-info"><p><strong>Side Note</strong>: Just in case you don't know the anatomy of a url:</p>
+              <div class="table-responsive">
+              <table class="table table-bordered table-inverted">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Example(s)</th>
+                    <th scope="col">Purpose</th>
+                    <th scope="col">Notes</th>
+                  </tr>
+                </thead>
+                <tfoot hidden></tfoot>
+                <tbody>
+                  <tr>
+                    <td><mark>Protocol</mark></td>
+                    <td><code>file:///, http://, https://, git://, ftp://, ws://, ssh://, mailto:, tel:</code></td>
+                    <td>Determines the way in which the required resource is gained</td>
+                    <td>
+                      <ul>
+                        <li>You can sometimes combine them: <code>git + ssh://</code></li>
+                        <li>If you write a url in a page without specifying one (e.g. <code>//test.com/test.js</code>) then whatever protocol you're using to load the page will be used to retreive that resource</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><mark>Domain Name</mark></td>
+                    <td><code>www.google.com</code></td>
+                    <td>This human-readable name maps to an external IP address (e.g. <code>74.125.224.72</code>) held by machines called routers (in a routing table). It is like an 'address' for the servers to which you want to send the request. The routers use this address to direct your request to the right servers.</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><mark>Port</mark></td>
+                    <td><code>:8080</code></td>
+                    <td>Ports are like different doors to the server. Having ports means that a server can direct traffic and run multiple hostings and services at once</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><mark>Path</mark></td>
+                    <td><code>/cats/about.html</code></td>
+                    <td>Specifies which particular resource you wish from that server</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><mark>Parameters</mark> (alias: <mark>query string</mark>)</td>
+                    <td><code class="qs">?page=4&amp;&amp;filter=persians</code></td>
+                    <td>Passes supplementary data for the server to use when processing your request.</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><mark>Anchor</mark> (alias: <mark>hash</mark>)</td>
+                    <td><code>#about</code>, <code>#players/4/7</code></td>
+                    <td><p>This part of the URL originaly referenced an id on your page. If there is a matching id your browser will jump the page to it. This is called <mark>deep linking</mark>.</p>
+                      <p>Later on, this part of the URL was used for '<mark>Client-side Routing</mark>'. This allows <abbr title="Single Page Applications">SPA</abbr>s (Single Page Applications) to keep track of their state.</p>
+                    </td>
+                    <td><p><abbr title="Single Page Applications">SPA</abbr>s thing called <mark>html5mode</mark> to hide the hash. So you may see <code>http://test.com/teams/15/players</code>, but what you're actually looking at is <code>http://test.com#teams/15/players</code>.</p>
+                      <p>There is an event you can listen to when the hash gets manipulated, called <code>onHashChange</code>.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p><strong>All of these properties are available to you in javascript via the <code>Location</code> object. (<code class="lowercase">window.Location</code>). Your browsing history is viewable and manipulable through <mark>HTML5 History API</mark> and is available in the <code class="lowercase">History</code> object (<code class="lowercase">window.History</code>).</strong></p>
+            </div>
+            </aside>
             <p>When you called GitHub you called a thing called an <abbr title="Application Program Interface">API</abbr> (<mark>Application Program Interface</mark>). APIs are set up by people/organisations to allow others to interact with their business through servers</p>
             <h3>REST APIs</h3>
             <h4>What is REST</h4>
             <p><abbr title="REspresentational State Transfer">REST</abbr> stands for <mark>REspresentational State Transfer</mark>. REST is a way of keeping the state of an application in sync on the client and the server. For example, if a user removes an item from their shopping basket on the client we send an HTTP <code>DELETE</code> request to remove it from the basket on the server too.</p>
             <h4>HTTP verbs/methods used in REST</h4>
-            <div class="alert alert-info">
-            <p>Disambiguation: HTTP VERB is a thing you use to <strong>do something</strong> using the http protocol itself. It is a method of doing something.</p>
-            <p> In coding: <dl>
+            <aside class="alert alert-info">
+            <p><strong>Side Note for Disambiguation</strong>: A HTTP VERB is the name for an action that is done using the HTTP protocols.</p>
+            <p>In coding:</p>
+            <dl>
               <dt>Function</dt>
               <dd>A structure that allows code execution</dd>
               <dt>Method</dt>
@@ -248,10 +317,11 @@ $.ajax({
               <dt>Protocol</dt>
               <dd>An agreed way of doing something. It may contain agreed methods to achieve that end</dd>
               <dt>Verb</dt>
-              <dd>One of those set up methods for doing something</dd>
-            </dl></p>
-          </div>
-            <p>In development we have a thing called <mark><abbr title="Create, Read, Update &amp; Delete">CRUD</abbr> (Create, Read, Update &amp; Delete")</mark>. These are typical operations that you do with an app:</p>
+              <dd>A name for one of those set up methods for doing something</dd>
+            </dl>
+          </aside>
+            <p>In development we have a thing called <mark><abbr title="Create, Read, Update &amp; Delete">CRUD</abbr> (Create, Read, Update &amp; Delete")</mark>. These are typical operations that you do with an app. REST has mapped those operations to HTTP methods so that everyone does things in a predictable manner, like so:</p>
+<div class="table-responsive">
     <table class="table table-bordered">
       <caption hidden>REST CRUD Relationship</caption>
         <thead>
@@ -291,10 +361,12 @@ $.ajax({
             </tr>
         </tbody>
     </table>
-            <h4>Typical URL Format</h4>
+</div>
+            <h4>Typical URL Format of a REST API</h4>
             <p>The URL Structure is important in REST. Using the standard structure well documents the API for users (meaning that they can guess where to call to acheive their aims).</p>
             <p>An API has places you can call to, called <mark>routes</mark>. An example route might be: <code>http://tesco.com/groceries/fruit/apples</code>. This makes it easy to guess where you'd call to get oranges, right?!</p>
-            <table class="table table-bordered">
+            <div class="table-responsive">
+              <table class="table table-bordered">
                   <caption hidden>REST Routes</caption>
                     <thead>
                         <tr>
@@ -353,7 +425,7 @@ $.ajax({
                         </tr>
                     </tbody>
                 </table>
-
+            </div>
             <h4>Testing APIs with Postman</h4>
             <p>Sometimes, rather than doing it in your console, you'll want to test ajax calls using a client program, so that the information is easier to see and you can configure the call better. I tend to use   <a href="https://www.getpostman.com/">Postman</a>. We'll just have a brief look at that.</p>
             <h4>jsonplaceholder</h4>
