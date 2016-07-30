@@ -288,11 +288,11 @@ $.ajax({
                   </tr>
                   <tr>
                     <td><mark>Anchor</mark> (alias: <mark>hash</mark>)</td>
-                    <td><code>#about</code>, <code>#players/4/7</code></td>
+                    <td><ul class="list-unstyled hash-list"><li>Normal link to an id in the page: <code>#about</code></li> <li>Client side Routing: <code>#players</code> or <code>#players/4/7</code></li></ul></td>
                     <td><p>This part of the URL originaly referenced an id on your page. If there is a matching id your browser will jump the page to it. This is called <mark>deep linking</mark>.</p>
                       <p>Later on, this part of the URL was used for '<mark>Client-side Routing</mark>'. This allows <abbr title="Single Page Applications">SPA</abbr>s (Single Page Applications) to keep track of their state.</p>
                     </td>
-                    <td><p><abbr title="Single Page Applications">SPA</abbr>s thing called <mark>html5mode</mark> to hide the hash. So you may see <code>http://test.com/teams/15/players</code>, but what you're actually looking at is <code>http://test.com#teams/15/players</code>.</p>
+                    <td><p><abbr title="Single Page Applications">SPA</abbr>s use a thing called <mark>html5mode</mark> to hide the hash. So you may see <code>http://test.com/teams/15/players</code>, but what you're actually looking at is <code>http://test.com#teams/15/players</code>.</p>
                       <p>There is an event you can listen to when the hash gets manipulated, called <code>onHashChange</code>.</p>
                     </td>
                   </tr>

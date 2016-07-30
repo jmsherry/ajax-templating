@@ -140,3 +140,7 @@ h4 abbr[title] {
 .qs {
   white-space: nowrap;
 }
+
+.hash-list li {
+  margin-bottom: 1em;
+}
