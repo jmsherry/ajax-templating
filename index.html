@@ -208,6 +208,7 @@ xmlhttp.onreadystatechange = function() {
 
 xmlhttp.open("GET", "ajax_info.txt", true);
 xmlhttp.send();</code></pre></p>
+<p class="alert alert-info">More on readyState <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState">Here</a></p>
     <p>We'll use jQuery because it's shorter/easier.</p>
             <p>Try the following in your console:</p>
             <pre><code class="language-javascript">$.ajax({
@@ -336,9 +337,9 @@ $.ajax({
               <dt>Method</dt>
               <dd>A way of doing something. May appear as a function itself and may contain functions</dd>
               <dt>Protocol</dt>
-              <dd>An agreed way of doing something (HTTP). It may contain agreed methods to achieve that end. (GET, POST, etc.)</dd>
+              <dd>An agreed way of doing something (HTTP). It may contain agreed methods to achieve that end.</dd>
               <dt>Verb</dt>
-              <dd>A name for one of those set up methods for doing something</dd>
+              <dd>A name for one of those set up methods for doing something. (GET, POST, etc.)</dd>
             </dl>
           </aside>
             <p>In development we have a thing called <mark><abbr title="Create, Read, Update &amp; Delete">CRUD</abbr> (Create, Read, Update &amp; Delete")</mark>. These are typical operations that you do with an app. REST has mapped those operations to HTTP methods so that everyone does things in a predictable manner, like so:</p>
