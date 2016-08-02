@@ -102,6 +102,11 @@ section section {
   border-bottom: none;
 }
 
+.breaker {
+  display: block;
+  margin-top: 5px;
+}
+
 .hb-steps li {
   margin-bottom: 1rem;
 }

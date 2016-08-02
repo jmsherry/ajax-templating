@@ -291,7 +291,7 @@ $.ajax({
                 <tfoot hidden></tfoot>
                 <tbody>
                   <tr>
-                    <td><mark>Protocol</mark></td>
+                    <td><mark>Protocol</mark><span class="breaker">(<code class="language-javascript ">location.protocol</code>)</span></td>
                     <td><code>file:///, http://, https://, git://, ftp://, ws://, ssh://, mailto:, tel:</code></td>
                     <td>Determines the way in which the required resource is gained</td>
                     <td>
@@ -302,31 +302,30 @@ $.ajax({
                     </td>
                   </tr>
                   <tr>
-                    <td><mark>Domain Name</mark></td>
-                    <td><code>www.google.com</code></td>
+                    <td><mark>Domain Name</mark><span class="breaker">(<code class="language-javascript ">location.hostname</code>)</span></td>
                     <td>This human-readable name maps to an external IP address (e.g. <code>74.125.224.72</code>) held by machines called routers (in a routing table). It is like an 'address' for the servers to which you want to send the request. The routers use this address to direct your request to the right servers.</td>
                     <td></td>
                   </tr>
                   <tr>
-                    <td><mark>Port</mark></td>
+                    <td><mark>Port</mark><span class="breaker">(<code class="language-javascript ">location.port</code>)</span></td>
                     <td><code>:8080</code></td>
                     <td>Ports are like different doors to the server. Having ports means that a server can direct traffic and run multiple hostings and services at once</td>
                     <td></td>
                   </tr>
                   <tr>
-                    <td><mark>Path</mark></td>
+                    <td><mark>Path</mark><span class="breaker">(<code class="language-javascript ">location.pathname</code>)</span></td>
                     <td><code>/cats/about.html</code></td>
                     <td>Specifies which particular resource you wish from that server</td>
                     <td></td>
                   </tr>
                   <tr>
-                    <td><mark>Parameters</mark> (alias: <mark>query string</mark>)</td>
+                    <td><mark>Parameters</mark> (alias: <mark>query string</mark>)<span class="breaker">(<code class="language-javascript ">location.search</code>)</span></td>
                     <td><code class="qs">?page=4&amp;&amp;filter=persians</code></td>
                     <td>Passes supplementary data for the server to use when processing your request.</td>
                     <td></td>
                   </tr>
                   <tr>
-                    <td><mark>Anchor</mark> (alias: <mark>hash</mark>)</td>
+                    <td><mark>Anchor</mark> (alias: <mark>hash</mark>)<span class="breaker">(<code class="language-javascript ">location.hash</code>)</span></td>
                     <td><ul class="list-unstyled hash-list"><li>Normal link to an id in the page: <code>#about</code></li> <li>Client side Routing: <code>#players</code> or <code>#players/4/7</code></li></ul></td>
                     <td><p>This part of the URL originaly referenced an id on your page. If there is a matching id your browser will jump the page to it. This is called <mark>deep linking</mark>.</p>
                       <p>Later on, this part of the URL was used for '<mark>Client-side Routing</mark>'. This allows <abbr title="Single Page Applications">SPA</abbr>s (Single Page Applications) to keep track of their state.</p>
@@ -337,7 +336,8 @@ $.ajax({
                   </tr>
                 </tbody>
               </table>
-              <p><strong>All of these properties are available to you in javascript via the <code class="preserve-case">location</code> object (<code class="preserve-case">window.location</code>): Although the names are somewhat different, it's easy to see what maps to what. Your browsing history is viewable and manipulable through <mark>HTML5 History API</mark> and is available in the <code class="preserve-case">history</code> object (<code class="preserve-case">window.history</code>).</strong></p>
+              <p>As you can see from the first column, <strong>All of these properties are available to you in javascript via the <code class="preserve-case">location</code> object (<code class="preserve-case">window.location</code>)</strong>.</p>
+              <p><strong>Your browsing history is also viewable and manipulable through <mark>HTML5 History API</mark> and is available in the <code class="preserve-case">history</code> object (<code class="preserve-case">window.history</code>).</strong></p>
               <p>Both <mark>history</mark> and <mark>location</mark> case sensitive, so <mark class="preserve-case">location</mark>, not <mark class="preserve-case">Location</mark>. (The title-cased versions are the contructor functions for those objects.)</p>
             </div>
             </aside>
