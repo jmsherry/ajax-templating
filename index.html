@@ -66,9 +66,9 @@
             <p>Insertion (part 2) is quite easy:</p>
             <pre><code class="language-javascript">//natural javascript
 //replace content
-document.getElementById('target').innerHtml = "&lt;p&gt;Hello World!&lt;/p&gt;";
+document.getElementById('target').innerHTML = "&lt;p&gt;Hello World!&lt;/p&gt;";
 //repeatedly add content
-document.getElementById('target').innerHtml += "&lt;p&gt;Hello World!&lt;/p&gt;";
+document.getElementById('target').innerHTML += "&lt;p&gt;Hello World!&lt;/p&gt;";
 
 
 //jQuery
@@ -337,7 +337,7 @@ $.ajax({
               <dt>Method</dt>
               <dd>A way of doing something. May appear as a function itself and may contain functions</dd>
               <dt>Protocol</dt>
-              <dd>An agreed way of doing something (HTTP). It may contain agreed methods to achieve that end.</dd>
+              <dd>An agreed way of doing something (HTTP - HyperText Transfer <strong>Protocol</strong>). It may contain agreed methods to achieve that end.</dd>
               <dt>Verb</dt>
               <dd>A name for one of those set up methods for doing something. (GET, POST, etc.)</dd>
             </dl>
