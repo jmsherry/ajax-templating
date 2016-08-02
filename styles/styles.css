@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-h2 {
+h2,  h3 {
     color: #3F7FBF;
     font-weight: 300;
     border-bottom: 2px solid;
@@ -19,6 +19,22 @@ h2 {
     padding-right: 0.5em;
     display: inline-block;
     margin-bottom: 1em;
+}
+
+h3{
+  color: #000;
+}
+
+.demo-area h3 {
+  font-family: 'top_secretregular', sans-serif;
+      border-bottom: none;
+      font-weight: bold;
+      text-align: right;
+      display: block;
+      float: right;
+      margin: 0;
+      padding: 0;
+      font-size: 3rem;
 }
 
 *[class^=" language-"] .tag {
@@ -79,6 +95,11 @@ section {
   padding: 50px 0 20px;
   border-bottom: 1px solid;
   box-shadow: 0 15px 29px -11px #333 inset;
+}
+
+section section {
+  box-shadow: none;
+  border-bottom: none;
 }
 
 .hb-steps li {

@@ -18,6 +18,7 @@
 
 
     <title>Templating, AJAX &amp; APIs</title>
+    <link href="./styles/fonts.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css">
@@ -140,6 +141,19 @@ $('#precompiled-receiver').append(testHTML)</code></pre>
                   <div id="compiled-receiver"></div>
                 </aside>
             </article>
+            <section class="exercise">
+              <h3>Exercise:</h3>
+              <p>Build your own templates:</p>
+              <ol>
+                <li>Just HTML</li>
+                <li>HTML from template with data</li>
+                <li>HTML from precompiled template with data</li>
+              </ol>
+              <p>Inject them here:</p>
+              <div id="templating-exercise-content" class="demo-area">
+                  <div class="demo-area-inner"><div class="receiver" aria-live="polite" aria-relevant="additions"></div></div>
+              </div>
+            </section>
         </div>
     </section>
     <section id="AJAX">
@@ -243,6 +257,18 @@ $.ajax({
                 <div id="ajax-content" aria-live="polite" aria-relevant="additions">Insert github profile here</div>
               </div>
             </div>
+            <section class="exercise">
+              <h3>Exercise:</h3>
+              <p>Make your own ajax calls:</p>
+              <ol>
+                <li>Make an HTML partial and call and inject into page</li>
+                <li>Make a .json file and call and template into page</li>
+              </ol>
+              <p>Inject them here:</p>
+              <div id="ajax-exercise-content" class="demo-area">
+                  <div class="demo-area-inner"><div class="receiver" aria-live="polite" aria-relevant="additions"></div></div>
+              </div>
+            </section>
 </div>
 </section>
 
@@ -444,6 +470,19 @@ $.ajax({
             <p>Sometimes, rather than doing it in your console, you'll want to test ajax calls using a client program, so that the information is easier to see and you can configure the call better. I tend to use   <a href="https://www.getpostman.com/">Postman</a>. We'll just have a brief look at that.</p>
             <h4>jsonplaceholder</h4>
             <p>One public 'dummy' API you can use to test is <a href="https://jsonplaceholder.typicode.com/">https://jsonplaceholder.typicode.com/</a>. If you use Postman (or any ajax; or just your browser [in the case of <code>GET</code>s]) to make a request to it, then it will respond with data. Try making a get request to <a href="https://jsonplaceholder.typicode.com/photos">https://jsonplaceholder.typicode.com/photos</a>, or making a <code>PUT</code> request to <code>https://jsonplaceholder.typicode.com/users/1</code></p>
+            <section class="exercise">
+              <h3>Exercise:</h3>
+              <p>Make calls to jsonplaceholder and template the responses.</p>
+              <p>Inject them here:</p>
+              <div id="api-exercise-content" class="demo-area">
+                  <div class="demo-area-inner">
+                    <button id="api-get" class="btn btn-success">GET</button>
+                    <button id="api-post" class="btn btn-primary">POST</button>
+                    <button id="api-put" class="btn btn-info">PUT</button>
+                    <button id="api-delete" class="btn btn-danger">DELETE</button>
+                    <div class="receiver" aria-live="polite" aria-relevant="additions"></div></div>
+              </div>
+            </section>
         </div>
     </section>
 
