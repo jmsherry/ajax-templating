@@ -54,4 +54,12 @@ $("#gh-user-form").on('submit.findGHUser', function(){
     return false;
   });
   //BECAUSE ajax is asynchronous, anything you put down here will happen before the request is completed, and hence it's no use
+
+  //PRECOMPILED TEMPLATE USE
+  var precomp1Html = Handlebars.templates['test.hbs']({message: "I'm template 1"});
+  var precomp2Html = Handlebars.templates['test2.hbs']({
+    text: "I\'m template 2",
+    text2: "I'm template 2 too!"
+  })
+  $('#compiled-receiver').append(precomp1Html).append(precomp2Html);
 });

@@ -64,12 +64,17 @@
             </ol>
             <h4>Insertion</h4>
             <p>Insertion (part 2) is quite easy:</p>
-            <pre><code class="language-javascript">//either
+            <pre><code class="language-javascript">//natural javascript
+//replace content
 document.getElementById('target').innerHtml = "&lt;p&gt;Hello World!&lt;/p&gt;";
+//repeatedly add content
+document.getElementById('target').innerHtml += "&lt;p&gt;Hello World!&lt;/p&gt;";
 
-//or with jQuery
+
+//jQuery
+//replace content
 $('#target').html('&lt;p&gt;Hello World!&lt;/p&gt;');
-//or to repeatedly add content
+//repeatedly add content
 $('#target').append('&lt;p&gt;Hello World!&lt;/p&gt;');</code></pre>
             <h4>Manufacture</h4>
             <p>The manufacture (part 1), however, is a little more tricky! To create new HTML we could just use javascript normally:</p>
@@ -128,6 +133,21 @@ var template = Handlebars.compile(source); //Returns a function we'll use to cre
                     </li>
                 </ol>
             </article>
+            <aside class="alert alert-info">
+              <h1>Pre-compilation</h1>
+              <p>If you look in the templates folder you'll see two files <mark>test.hbs</mark> and <mark>test2.hbs</mark> - these are handlbars template files. (<mark>.handlebars</mark> is the long form of that file extension).</p>
+              <p>For speed, templates can be compiled by something like gulp, or just using the command line, and loaded into the page using a script tag. Like jQuery plugins go into <code class="language-javascript">$.fn</code>, these go into <code class="language-javascript">Handlebars.templates</code> and you can use them straight away!</p>
+              <p>If you look inside the <mark>compiled</mark> directory you'll see <mark>templates.js</mark>, which contains both templates compiled and concatenated into a single file, which we can load into the page.</p>
+              <p>Finally, if you now look in <mark>package.json</mark>, you'll see in the <mark>scripts object</mark> how that was achieved. If you make a change to one of the templates then on your command line (inside this repo) type <kbd>npm run templates</kbd>, it will compile the templates into the single file.</p>
+              <p>We use them like so:</p>
+              <pre><code class="language-javascript">var data = {message: "I'm template1"};
+var testHTML = Handlebars.templates['test'](data);
+$('#precompiled-receiver').append(testHTML)</code></pre>
+              <p>see <mark>main.js</mark> for more.</p>
+              <hr>
+              <p>This is the output:</p>
+              <div id="compiled-receiver"></div>
+            </aside>
         </div>
     </section>
     <section id="AJAX">
@@ -463,7 +483,7 @@ $.ajax({
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-json.min.js"></script>
 
-
+    <script src="./templates/compiled/templates.js"></script>
 
     <script src="./scripts/main.js"></script>
 </body>
