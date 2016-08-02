@@ -172,13 +172,13 @@ $('#precompiled-receiver').append(testHTML)</code></pre>
             <p>AJAX allows us to call out to servers (including our own) for resources after the page has been loaded. We can call for actual html files (generally these are not whole pages and are known as 'partials') and insert them into our current page; specific data files (<abbr title="JavaScript Object Notation">JSON</abbr> or, less commonly,  <abbr title="Extensible Markup Language">XML</abbr>), or; we can call the server, using a non-specific <abbr title="Uniform Resource Indicator">URI</abbr> and ask for a response (which is typically <abbr title="JavaScript Object Notation">JSON</abbr>)</p>
             <h4>Introducing <abbr title="JavaScript Object Notation">JSON</abbr></h4>
             <p><abbr title="JavaScript Object Notation">JSON</abbr> is a '<mark>transport language</mark>'. It stands for '<mark>JavaScript Object Notation</mark>'. It allows the transport of JavaScript objects between locations.</p>
-            <p><abbr title="JavaScript Object Notation">JSON</abbr> can be formed of <mark>objects or arrays</mark>, and is formatted like a normal javascript, except that: <ol><li><strong>strings must use double quotes</strong></li><li><strong>keys must be in double quotes too</strong></li></ol> So:
+            <p><abbr title="JavaScript Object Notation">JSON</abbr> can be formed of <mark>objects or arrays</mark>, and is formatted like a normal javascript, except that: <ol><li><strong>strings must use double quotes</strong></li><li><strong>keys must be in double quotes too</strong></li></ol> So this javasrcipt object:
             <pre><code class="language-javascript">{
   name: 'james',
   age: 38,
   isTutor: true
 }</code></pre>
-            becomes
+            becomes this JSON:
             <pre><code class="language-json">{
   "name": "james",
   "age": 38,
