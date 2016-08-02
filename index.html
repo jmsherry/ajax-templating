@@ -131,9 +131,9 @@ var template = Handlebars.compile(source); //Returns a function we'll use to cre
                   <p>Finally, if you now look in <mark>package.json</mark>, you'll see in the <mark>scripts object</mark> how that was achieved. If you make a change to one of the templates then on your command line (inside this repo) type <kbd>npm run templates</kbd> and hit <kbd>return</kbd>, it will compile the templates into the single file.</p>
                   <p>We use them like so:</p>
                   <pre><code class="language-javascript">//using test1.hbs
-    var data = {message: "I'm template1"};
-    var testHTML = Handlebars.templates['test1.hbs'](data);
-    $('#precompiled-receiver').append(testHTML)</code></pre>
+var data = {message: "I'm template1"};
+var testHTML = Handlebars.templates['test1.hbs'](data);
+$('#precompiled-receiver').append(testHTML)</code></pre>
                   <p>see <mark>main.js</mark> for more.</p>
                   <hr>
                   <p>This is the output:</p>
