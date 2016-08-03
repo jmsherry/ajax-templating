@@ -3,13 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>D3 Demo</title>
+  <style>
+  text {
+          font: 12px sans-serif;
+      }
+
+      svg {
+          display: block;
+          float: left;
+      }
+      #chart1, #chart2 {
+        display: inline-block;
+        vertical-align: top;
+        height: 350px !important;
+        width: 350px !important;
+    }
+      }
+      #chart1 svg, #chart2svg {
+          height: 350px !important;
+          width: 350px !important;
+      }
+      html, body {
+          margin: 0px;
+          padding: 0px;
+          height: 100%;
+          width: 100%;
+      }
+
+      .nvd3.nv-pie.nv-chart-donut2 .nv-pie-title {
+          fill: rgba(70, 107, 168, 0.78);
+      }
+
+      .nvd3.nv-pie.nv-chart-donut1 .nv-pie-title {
+          opacity: 0.4;
+          fill: rgba(224, 116, 76, 0.91);
+      }
+
+  </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.min.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
   <script src="./vendor/nv.d3.min.js"></script>
 </head>
 <body>
-  <div id="chart">
+  <div id="chart1">
     <svg></svg>
   </div>
   <div id="chart2">

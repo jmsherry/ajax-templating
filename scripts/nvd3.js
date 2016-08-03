@@ -1,11 +1,15 @@
 //Regular pie chart example
 nv.addGraph(function() {
+  //create graph
   var chart = nv.models.pieChart()
+      .width(350)
+      .height(350)
       .x(function(d) { return d.label })
       .y(function(d) { return d.value })
       .showLabels(true);
 
-    d3.select("#chart svg")
+      //apply to page with data
+    d3.select("#chart1 svg")
         .datum(exampleData())
         .transition().duration(350)
         .call(chart);
@@ -14,17 +18,20 @@ nv.addGraph(function() {
 });
 
 //Donut chart example
+// Create Graph
 nv.addGraph(function() {
   var chart = nv.models.pieChart()
       .x(function(d) { return d.label })
       .y(function(d) { return d.value })
+      .width(350)
+      .height(350)
       .showLabels(true)     //Display pie labels
       .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
       .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
       .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
       .donutRatio(0.35);     //Configure how big you want the donut hole size to be.
-      
 
+      // Apply to page with data
     d3.select("#chart2 svg")
         .datum(exampleData())
         .transition().duration(350)
